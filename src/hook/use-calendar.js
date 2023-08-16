@@ -1,40 +1,40 @@
 import dayjs from "dayjs";
-import { useState } from "react"
+import { useState } from "react";
 
 export const useCalendar = (now) => {
-    const [selectedDate, setSelectedDate] = useState(now);
-    const [isDatePickerVisible, setDatePickerVisivility] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(now);
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
-    const showDatePicker = () => {
-        setDatePickerVisivility(true);
-    };
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+  };
 
-    const hideDatePicker = () => {
-        setDatePickerVisivility(false);
-    };
-    
-    const handleConfirm = (date) => {
-        setSelectedDate(dayjs(date));
-        hideDatePicker();
-    };
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+  };
 
-    const subtract1Month = () => {
-        const newSelectedDate = dayjs(selectedDate).subtract(1,'month');
-        setSelectedDate(newSelectedDate);
-    }
-    const add1Month = () => {
-        const newSelectedDate = dayjs(selectedDate).add(1,'month');
-        setSelectedDate(newSelectedDate);
-    }
+  const handleConfirm = (date) => {
+    setSelectedDate(dayjs(date));
+    hideDatePicker();
+  };
 
-    return {
-        selectedDate,
-        setSelectedDate,
-        isDatePickerVisible,
-        showDatePicker,
-        hideDatePicker,
-        handleConfirm,
-        subtract1Month,
-        add1Month
-    }
+  const subtract1Month = () => {
+    const newSelectedDate = dayjs(selectedDate).subtract(1, 'month');
+    setSelectedDate(newSelectedDate);
+  }  
+  const add1Month = () => {
+    const newSelectedDate = dayjs(selectedDate).add(1, 'month');
+    setSelectedDate(newSelectedDate);
+  }
+
+  return {
+    selectedDate,
+    setSelectedDate,
+    isDatePickerVisible,
+    showDatePicker,
+    hideDatePicker,
+    handleConfirm,
+    subtract1Month,
+    add1Month,
+  }
 }
